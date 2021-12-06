@@ -15,7 +15,7 @@ def user_login():
     json_data = requests.get("http://10.0.2.15:5000/users/" + reqUserLog).json()
     print(json_data)
     if json_data['user_USERNAME'] == reqUserLog and json_data['user_PASS'] == reqPassLog:
-        return redirect("/LoggendIn")
+        return redirect("/LoggedIn")
     else:
         return f"Invalid Username and Password."
 
@@ -47,9 +47,9 @@ def user_register():
 def monitoring():
     return render_template('client.html')
 
-@app.route('/LoggendIn', methods = ['GET', 'POST'])
+@app.route('/LoggedIn', methods = ['GET', 'POST'])
 def introduction():
-    return render_template('LoggendIn.html')
+    return render_template('LoggedIn.html')
 
 @app.route('/objectives', methods = ['GET', 'POST'])
 def about():
